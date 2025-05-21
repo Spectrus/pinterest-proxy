@@ -12,7 +12,7 @@ app.get("/pinterest", async (req, res) => {
 
   try {
     const response = await axios.get(
-      "https://pinterest-scraper-api.p.rapidapi.com/pins",    // ← updated path
+    "https://pinterest-scraper-api.p.rapidapi.com/pin.php",    // ← updated path
       {
         params: { query },
         headers: {
