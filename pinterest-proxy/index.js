@@ -11,20 +11,16 @@ app.get("/pinterest", async (req, res) => {
   if (!query) return res.status(400).json({ error: "Missing query" });
 
   try {
-    const response = await axios.get(
-    "https://pinterest-scraper-api.p.rapidapi.com/pin.php",    // ← updated path
-      {
-        params: { query },
-        headers: {
-          "x-rapidapi-host": "pinterest-scraper-api.p.rapidapi.com",
-          "x-rapidapi-key": process.env.RAPIDAPI_KEY,
-        },
-      }
-    );
+    const response = await axios.get("https://pinterest-scraper-api.p.rapidapi.com/pinterest/search", {
+      params: { query },
+      headers: {
+        "x-rapidapi-host": "pinterest-scraper-api.p.rapidapi.com",
+        "x-rapidapi-key": process.env.RAPIDAPI_KEY,
+      },
+    });
 
     res.json(response.data);
   } catch (err) {
-    // Log the HTTP status and body from RapidAPI so you can see
     console.error(
       "Pinterest fetch failed:",
       err.response?.status,
