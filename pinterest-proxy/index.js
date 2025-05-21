@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors());
+console.log("RAPIDAPI_KEY:", process.env.RAPIDAPI_KEY);
 
 app.get("/pinterest", async (req, res) => {
   const query = req.query.q;
