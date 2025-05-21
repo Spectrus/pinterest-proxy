@@ -1,0 +1,8 @@
+services:
+  - type: web            # we're deploying a web service
+    name: pinterest-proxy
+    env: node            # Node.js environment
+    plan: free           # Render's free tier
+    branch: main         # the Git branch to build & deploy
+    buildCommand: npm install
+    startCommand: node index.js
