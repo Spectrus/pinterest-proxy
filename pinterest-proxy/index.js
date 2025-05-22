@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors());
+
 console.log("RAPIDAPI_KEY:", process.env.RAPIDAPI_KEY);
 
 app.get("/pinterest", async (req, res) => {
@@ -12,7 +13,7 @@ app.get("/pinterest", async (req, res) => {
   if (!query) return res.status(400).json({ error: "Missing query" });
 
   try {
-    const response = await axios.get("https://pinterest-scraper-api.p.rapidapi.com/pinterest/search", {
+    const response = await axios.get("https://pinterest-scraper-api.p.rapidapi.com/pin.php", {
       params: { query },
       headers: {
         "x-rapidapi-host": "pinterest-scraper-api.p.rapidapi.com",
