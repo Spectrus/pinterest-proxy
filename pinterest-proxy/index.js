@@ -13,7 +13,7 @@ app.get("/pinterest", async (req, res) => {
   if (!query) return res.status(400).json({ error: "Missing query" });
 
   try {
-    const response = await axios.get("https://pinterest-scraper-api.p.rapidapi.com/pin.php", {
+    const response = await axios.get("https://pinterest-scraper-api.p.rapidapi.com/pinterest/search", {
       params: { query },
       headers: {
         "x-rapidapi-host": "pinterest-scraper-api.p.rapidapi.com",
